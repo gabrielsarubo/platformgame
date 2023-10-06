@@ -5,9 +5,9 @@ using UnityEngine;
 public class scriptPlatform : MonoBehaviour
 {
 	private float counter = 0;
-	public float velocity = 3;
+	public float velocity = 2.5f;
 	private Vector2 posInitial;
-	public float radiusX = 1;
+	public float radiusX = 2;
 	public float radiusY = 0;
 	// Start is called before the first frame update
 	void Start()
