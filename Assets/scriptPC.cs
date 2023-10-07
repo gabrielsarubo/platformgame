@@ -6,6 +6,8 @@ using UnityEngine;
 public class scriptPC : MonoBehaviour
 {
 
+	public LayerMask layerMask;
+	public float rayDistance = 1;
 	public float velocity = 5.5f;
 	public float jumpForce = 420;
 	private bool onFloor = false;
@@ -36,7 +38,7 @@ public class scriptPC : MonoBehaviour
 	{
 		onFloor = false;
 		// Only unset the parent of PC when collides with platform
-		if (collision.gameObject.tag == "platform")
+		if (collision.gameObject.CompareTag("platform"))
 		{
 			transform.SetParent(null, true);
 		}
@@ -65,6 +67,16 @@ public class scriptPC : MonoBehaviour
 		{
 			onFloor = false;
 			rbody.AddForce(new Vector2(0, jumpForce));
+		}
+
+		// Kill enemy when jumping on its head
+		RaycastHit2D hit;
+		hit = Physics2D.Raycast(transform.position, -transform.up, rayDistance, layerMask);
+		Debug.DrawRay(transform.position, -transform.up * rayDistance, Color.red);
+		if (hit.collider != null)
+		{
+			Debug.Log("Kill enemy.");
+			Destroy(hit.collider.gameObject);
 		}
 	}
 }

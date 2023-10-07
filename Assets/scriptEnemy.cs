@@ -31,9 +31,20 @@ public class scriptEnemy : MonoBehaviour
 			distance, ie the range of the ray, identify proximity
 			layer mask in this case represents the Layer "Collidable", previously created
 			in the UI in Unity
+
+			The "hit" variable below will only return an object if the ray hits the layerMask
+			that was defined in Unity UI previously
+			In other words, if the Raycast hits a player, for instance, it will ignore
+			and hit.collider will be null, because it only looks for collisions with the layer "Collidable"
+
+			When the ray is not hitting anything per se:
+			hit == null
+			However, when the ray hits a layer "Collidable", it is:
+			hit == colliders (UnityEngine.TilemapCollider2D)
+
+			// Debug.Log("hit = " + hit.collider.ToString());
 		*/
 		hit = Physics2D.Raycast(transform.position, transform.right, 0.6f, layerMask);
-
 		if (hit.collider != null)
 		{
 			speed *= -1;

@@ -2516,6 +2516,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08a1f83273493e458319ebe7ddad9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  rayDistance: 1
   velocity: 5.5
   jumpForce: 420
 --- !u!212 &1003942817
@@ -2795,7 +2799,7 @@ GameObject:
   - component: {fileID: 1819484070}
   - component: {fileID: 1819484069}
   - component: {fileID: 1819484068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
