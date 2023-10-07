@@ -7,7 +7,7 @@ public class scriptPC : MonoBehaviour
 {
 
 	public LayerMask layerMask;
-	public float rayDistance = 1;
+	public float rayDistance = 0.8f;
 	public float velocity = 5.5f;
 	public float jumpForce = 420;
 	private bool onFloor = false;

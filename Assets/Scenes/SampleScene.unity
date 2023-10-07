@@ -2519,7 +2519,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  rayDistance: 1
+  rayDistance: 0.8
   velocity: 5.5
   jumpForce: 420
 --- !u!212 &1003942817
@@ -2818,6 +2818,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca6ce577babcbd43a252077b50a3548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMaskPlayer:
+    serializedVersion: 2
+    m_Bits: 64
   layerMask:
     serializedVersion: 2
     m_Bits: 128

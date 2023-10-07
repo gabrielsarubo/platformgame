@@ -9,6 +9,7 @@ using UnityEngine;
 */
 public class scriptEnemy : MonoBehaviour
 {
+	public LayerMask layerMaskPlayer;// on the UI, select "Player"
 	public LayerMask layerMask;// on the UI, select "Collidable"
 	private Rigidbody2D rbody;
 	public float speed = 3;
@@ -23,7 +24,7 @@ public class scriptEnemy : MonoBehaviour
 	{
 		rbody.velocity = new Vector2(speed, 0);
 
-		RaycastHit2D hit;
+		RaycastHit2D hit, hitPlayer;
 		/* 
 			Parameters of Raycast
 			origin point of the ray, ie. where it is coming from
@@ -50,6 +51,12 @@ public class scriptEnemy : MonoBehaviour
 			speed *= -1;
 			rbody.velocity = new Vector2(speed, 0);
 			transform.Rotate(new Vector2(0, 180));
+		}
+
+		// Kill PC when Enemy touches it
+		hitPlayer = Physics2D.Raycast(transform.position, transform.right, 0.6f, layerMaskPlayer);
+		if (hitPlayer.collider != null) {
+			hitPlayer.collider.gameObject.SetActive(false);
 		}
 	}
 }
