@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
  * The Raycast logic for this Enemy is considering that the sprite
@@ -57,6 +58,7 @@ public class scriptEnemy : MonoBehaviour
 		hitPlayer = Physics2D.Raycast(transform.position, transform.right, 0.6f, layerMaskPlayer);
 		if (hitPlayer.collider != null) {
 			hitPlayer.collider.gameObject.SetActive(false);
+			SceneManager.LoadSceneAsync(3);
 		}
 	}
 }
